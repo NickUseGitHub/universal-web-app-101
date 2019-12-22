@@ -1,8 +1,3 @@
-const stringOutput = 'Hello this is from app.js';
+const stringOutput = 'Hello this is from app.js V.2'
 
-if (typeof module !== 'undefined') {
-  module.exports = stringOutput;
-} else {
-  alert("hello world");
-  document.getElementById("root").innerHTML = stringOutput;
-}
+module.exports = stringOutput
