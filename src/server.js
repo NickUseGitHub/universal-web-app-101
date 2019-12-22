@@ -4,7 +4,7 @@ const stringOutput = require('./app')
 const port = 3000
 const app = express()
 
-app.use('/static/js/app.js', express.static(__dirname + '/app.js'))
+app.use('/static', express.static(__dirname + '/static'))
 
 app.get('/', function simpleController(req, res) {
   res.header('Content-Type', 'text/html; charset=UTF-8')
@@ -14,11 +14,9 @@ app.get('/', function simpleController(req, res) {
       <title>This is an Universal Webapp</title>
     </head>
     <body>
-      <div id="root">
-        ${stringOutput}
-      </div>
+      <div id="root"></div>
     </body>
-    <script type="text/ecmascript" src="http://localhost:3000/static/js/app.js"></script>
+    <script type="text/ecmascript" src="http://localhost:3000/static/app.bundle.js"></script>
   </html>
   `);
 })
