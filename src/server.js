@@ -1,7 +1,10 @@
 const express = require('express')
+const stringOutput = require('./app')
 
 const port = 3000
 const app = express()
+
+app.use('/static/js/app.js', express.static(__dirname + '/app.js'))
 
 app.get('/', function simpleController(req, res) {
   res.header('Content-Type', 'text/html; charset=UTF-8')
@@ -12,9 +15,10 @@ app.get('/', function simpleController(req, res) {
     </head>
     <body>
       <div id="root">
-        Hello world. This is Universal webapp
+        ${stringOutput}
       </div>
     </body>
+    <script type="text/ecmascript" src="http://localhost:3000/static/js/app.js"></script>
   </html>
   `);
 })
